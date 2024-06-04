@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Side Bar</title>
+    <style>
+        *{
+           /* border: 1px solid white;*/
+            box-sizing: border-box;
+            font-family: Helvetica,sans-serif;
+        }
+
+        @media print {
+            #container {
+                display: none;
+            }
+        }
+
+        body{
+            color: white;
+            position: relative;
+            width: 98vw;
+            height: 100vh;
+            background: linear-gradient(-45deg, #dae, #f66, #3c9, #09f, #66f);
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0 12%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0 12%;
+            }
+        }
+
+        #container{
+            transition: .8s;
+            background-color: #222222;
+            position: absolute;
+            top: 8vh;
+            left: 3vw;
+            min-width: 85px;
+            height: 800px;
+            border-radius: 20px;
+            overflow: hidden;
+
+            .inner{
+                position: absolute;
+                top: 0;
+                left: 5px;
+            }
+
+            a{
+                text-decoration: none;
+                color: white;
+            }
+
+            .nav{
+                width: 214px;
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 25px;
+                padding:10px 0 0 6px;
+
+                .ava{
+                    position: absolute;
+                    top: 7px;
+                    left: 5px;
+                    text-decoration: none;
+
+                    .tx{
+                        box-shadow: 3px 3px 8px 8px black;
+                        transition: .5s;
+                        opacity: 0.8;
+                        border: 1px solid black;
+                        border-radius: 50%;
+                    }
+                    .tx:hover{
+                        opacity: 1;
+                        transform: scale(1.1);
+                    }
+                }
+                .sub{
+                    transition: 1s;
+                    opacity: 0.5;
+                    color: black;
+                    font-size: 11px;
+                    position: absolute;
+                    top:-10px;
+                    right:-40px;
+                    padding: 5px 5px 5px 13px;
+                    background-color: yellow;
+
+                    .tri{
+                        position: absolute;
+                        inset: 0 -1px;
+                        width: 0;
+                        height: 0;
+                        /* this is how to create triangle*/
+                        border: 12px solid;
+                        border-top-color: transparent;
+                        border-right-color: transparent;
+                        border-bottom-color: transparent;
+                        border-left-color: #222222;
+                    }
+
+                }
+                .sub:hover{
+                    opacity: 0.7;
+                    right: -10px;
+                }
+
+                .uname{
+                    transition: .5s ease-in;
+                    width: 100px;
+                    height: 80px;
+                    opacity: 0.7;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    cursor: pointer;
+                    padding-top: 10px;
+                    padding-left: 10px;
+                    margin-top:10px;
+                    margin-left:50px;
+                    text-shadow: 0 0 50px whitesmoke;
+                }
+                .uname:hover{
+                    opacity: 0.9;
+                    text-shadow: none;
+                }
+            }
+
+            .main:hover .line1{
+                width: 170px;
+            }
+            .main:hover .line2{
+                width: 170px;
+            }
+            .main:hover .content{
+                width: 130px;
+            }
+            .main:hover .side1{
+                opacity: 0.8;
+                left: -5px;
+            }
+
+            .main{
+                width: 200px;
+                height: 300px;
+                position: relative;
+                top: 130px;
+                left: 0;
+
+                .line1,.line2{
+                    transition: 1.5s;
+                    background: rgba(245, 253, 255, 0.5);
+                    width: 45px;
+                    height: 1px;
+                    margin-top: 20px;
+                    margin-left: 15px;
+                }
+                .title1{
+                    position: absolute;
+                    top: 10px;
+                    left: 17px;
+                    opacity: 0.5;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    font-variant: small-caps;
+                }
+                .side1{
+                    transition: .3s;
+                    position: absolute;
+                    top: 41px;
+                    left: -10px;
+                    width: 4px;
+                    height: 22vh;
+                    background-color: yellow;
+                    opacity: 0.5;
+                    border-radius: 0 20px 20px 0;
+                }
+                .content{
+                    transition: .5s;
+                    width: 0;
+                    overflow: hidden;
+                    line-height: 3;
+                    position: relative;
+                    top: 11px;
+                    left: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .content-box{
+                        transition: .5s;
+                        text-align: center;
+                        width: 130px;
+                        height: 48px;
+                        opacity: 0.6;
+
+                        a:active{
+                            transition: .5s;
+                            text-shadow: 5px 7px 3px lightyellow;
+                        }
+                    }
+                    .content-box:hover{
+                        opacity: 1;
+                        background-color: #171717;
+                        border-radius: 20px 0 20px 0;
+                    }
+                }
+                .icons{
+                    width: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 2;
+                    font-size: 1.5em;
+                    position: absolute;
+                    top: 30px;
+                    left: 0;
+                    padding-left: 25px;
+
+                    span{
+                        transition: .3s;
+                        opacity: 0.8;
+                    }
+                    span:hover{
+                        opacity: 1;
+                        padding-left: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .foot{
+                width: 212px;
+                height: 210px;
+                position: relative;
+                top: 120px;
+                left: -1px;
+
+                .title2{
+                    position: absolute;
+                    top: 0;
+                    left: 14px;
+                    opacity: 0.5;
+                    font-size: 11px;
+                    text-transform: uppercase;
+                    font-variant: small-caps;
+                }
+                .side2{
+                    transition: .3s;
+                    position: absolute;
+                    top: 50px;
+                    right:-20px;
+                    width: 4px;
+                    height: 15vh;
+                    background-color: yellow;
+                    opacity: 0.5;
+                    border-radius: 20px 0 0 20px;
+                }
+
+                .others{
+                    width: 40px;
+                    height: 157px;
+                    position: absolute;
+                    top: 50px;
+                    left: 17px;
+                    transition: .8s;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #151515;
+                    border-radius: 25px;
+
+                    .content{
+                        transition: .2s;
+                        width: 0;
+                        height: 150px;
+                        overflow: hidden;
+                        position: relative;
+                        top: -2px;
+                        left: 41px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+
+                        .content-box{
+                            z-index: 1;
+                            transition: .3s;
+                            opacity: 0.5;
+                            font-size: 0.8em;
+                            text-align: center;
+                            width: 65px;
+                            height: 40px;
+                            padding: 10px 5px 0 5px;
+                            margin: 0 0 0 10px;
+                            background:linear-gradient(to right,yellow, yellow) no-repeat bottom;
+                            background-size: 0 2px;
+                            a:active{
+                                color: hotpink;
+                            }
+                        }
+                        .content-box:hover{
+                            z-index: 2;
+                            background-size: 100% 1px;
+                            opacity: 0.9;
+                            cursor: pointer;
+                            transform: scale(1.1);
+                            font-size: 13.5px;
+                        }
+                    }
+
+                    .icons{
+                        transition: .3s;
+                        width: 35px;
+                        display: flex;
+                        flex-direction: column;
+                        line-height: 2;
+                        font-size: 1.5em;
+                        position: absolute;
+                        top: 8px;
+                        left: 0;
+                        padding-left: 6px;
+
+                        span{
+                            transition: .5s;
+                            opacity: 0.6;
+                            padding-left: 2px;
+                        }
+                        span:hover{
+                            opacity: 1;
+                            color: #cece0f;
+                            padding-left: 5px;
+                            cursor: pointer;
+                        }
+                    }
+
+                }
+
+                .others:hover .icons{
+                    left: 20px;
+                    top:20px;
+                    font-size: 1.3em;
+                }
+                .others:hover .content{
+                    width: 12vw;
+                    overflow: hidden;
+                    margin-right: 60px;
+                    padding-right: 40px;
+                    padding-left: 30px;
+                }
+
+                .bell{
+                    transition: 1s;
+                    opacity: 1;
+                    position: relative;
+                    inset: 250px 18px;
+                    width: 40px;
+                    height: 40px;
+                    font-size: 2.5em;
+                    color: lightyellow;
+                }
+            }
+            .foot:hover .side2{
+                right:-12px;
+                opacity: 0.8;
+            }
+            .foot:hover .others{
+                transform: scale(1.1);
+                width: 160px;
+                border-radius: 80px 80px 80px 80px;
+                margin-left: 8px;
+            }
+        }
+
+
+        #container:hover{
+            min-width: 23vh;
+        }
+        #container:hover .bell{
+            margin-left: 70px;
+        }
+
+    </style>
+</head>
+<body>
+<div id = "container">
+    <div class = "inner">
+    <div class = "nav">
+        <div><a class = "ava" href = "https://boxicons.com/usage"><img src = "390263d2fd.jpg" alt="avatar" width="65" height="65" class="tx"></a></div>
+        <!--<span><a class = "ava" href = "https://boxicons.com/usage"><i class='bx bxs-user-circle'></i></a></span>-->
+        <div class = "sub">
+            <span>steinsgate</span>
+            <span class = "tri"></span>
+        </div>
+        <span class = "uname"><a href = "https://boxicons.com/usage">Makise Kurisu</a></span>
+    </div>
+    <div class = "main">
+        <div class = "line1"></div><br>
+        <span class="title1">menu</span>
+        <div class = "side1"></div>
+        <div class = "content">
+            <span class = "content-box"><a href = "https://boxicons.com/usage">Tag World</a></span>
+            <span class = "content-box"><a href = "https://boxicons.com/usage">Home</a></span>
+            <span class = "content-box"><a href = "https://boxicons.com/usage">Create</a></span>
+            <span class = "content-box"><a href = "https://boxicons.com/usage">DM</a></span>
+            <span class = "content-box"><a href = "https://boxicons.com/usage">Envelope</a></span>
+        </div>
+        <div class = "icons">
+            <span><a href = "https://boxicons.com/usage"></a><i class='bx bx-world'></i></span>
+            <span><a href = "https://boxicons.com/usage"></a><i class='bx bx-home'></i></span>
+            <span><a href = "https://boxicons.com/usage"></a><i class='bx bx-chip'></i></span>
+            <span><a href = "https://boxicons.com/usage"></a><i class='bx bx-envelope'></i></span>
+            <span><a href = "https://boxicons.com/usage"></a><i class='bx bxl-telegram'></i></span>
+        </div>
+        <div class = "line2"></div>
+    </div>
+    <div class = "foot">
+        <span class = "title2">server</span>
+        <!--<div class = "side2"></div>-->
+        <div class = "side2"></div>
+        <div class = "others">
+            <div class = "content">
+                <span class = "content-box"><a href = "https://boxicons.com/usage">Setting 1</a></span>
+                <span class = "content-box"><a href = "https://boxicons.com/usage">Setting 2</a></span>
+                <span class = "content-box"><a href = "https://boxicons.com/usage">Setting 3</a></span>
+            </div>
+            <div class = "icons">
+                <span><i class='bx bx-list-ul'></i></span>
+                <span><i class='bx bx-category'></i></span>
+                <span><i class='bx bxs-time-five'></i></span>
+            </div>
+        </div>
+        <div class = bell><i class='bx bxs-bell-ring bx-tada'></i></div>
+    </div>
+    </div>
+</div>
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</body>
+</html>
