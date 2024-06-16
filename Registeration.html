@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "Registration">
+    <title>Registration</title>
+    <script>
+        function welcomeFunction() {
+            const username = document.querySelector('#username').value;
+            alert("Welcome to Tag! " + username)
+        }
+    </script>
+    <style>
+        *{
+            /*border: 1px solid yellow;*/
+            box-sizing: border-box;
+        }
+        body {
+            padding-top: 1px;
+            width: 100vw;
+            height: 100vh;
+            background: url("stacked-waves-haikei (2).svg");
+            background-attachment: fixed;
+            background-size: 100%;
+            backdrop-filter: brightness(0.25);
+            margin: 0;
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 140px auto auto auto;
+                width:1000px;
+                height:650px;
+                box-shadow: 10px 10px 25px 0 black;
+
+                .back {
+                    width: 500px;
+                    height: 647px;
+                }
+
+                .inner {
+                    margin: auto;
+                    padding-top: 30px;
+                    width: 530px;
+                    height: 645px;
+                    background-color: #00101C;
+
+                    .av {
+                        margin: auto;
+                        opacity: 0.7;
+                        width: 120px;
+                        height: 120px;
+                        background-color: white;
+                        border-radius: 50%;
+                    }
+
+                    .inner2 {
+                        margin: auto;
+                        padding: 50px 0 0 57px;
+                        form {
+                            width: 400px;
+                            height: 320px;
+
+                            input {
+                                transition: .3s ease-in-out;
+                                color: white;
+                                background-color: rgba(41, 126, 166, 15%);
+                                border: none;
+                                border-radius: 13px;
+                                font-size: 1.1em;
+                                text-indent: 15px;
+                                width: inherit;
+                                height: 50px;
+                                margin-bottom: 40px
+                            }
+
+                            input:hover{
+                                background-color: rgba(41,126,166,25%);
+                            }
+                            input:focus {
+                                color: black;
+                                background-color: rgba(255, 255, 255, 95%);
+                            }
+
+                        }
+
+                        .signup {
+                            border: 3px solid white;
+                            transition: .1s;
+                            margin-top: 40px;
+                            margin-left: 150px;
+                            width: 100px;
+                            height: 40px;
+                            font-size: 1.2em;
+                            background-color: transparent;
+                            color: whitesmoke;
+                        }
+                        .signup:hover {
+                            color: black;
+                            background-color: yellow;
+                        }
+                        /*
+                        .signup:hover {
+                            margin-left: 0;
+                            width: 400px;
+                            background: linear-gradient(150deg, pink, grey);
+                            box-shadow: 0 0 15px 2px grey;
+                            border-radius: 30px;
+                            text-decoration: none;
+                        }
+                        */
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class = "container">
+        <div class = "inner">
+            <div class = "av"></div>
+            <div class = "inner2">
+                <form>
+                    <label for = "username"></label>
+                    <input name = "username" placeholder = "你的名字" id = "username">
+                    <label for = "password"></label>
+                    <input type = "password" name = "password" placeholder = "密码不少于8个字符" id = "password">
+                    <label for = "confirm"></label>
+                    <input type = "password" name = "confirm" placeholder = "再次确认密码" id = "confirm">
+                    <label for = "address"></label>
+                    <input name = "address" placeholder = "输入有效电话号码/邮箱" id = "address">
+                </form>
+                <button class = "signup" onclick = "welcomeFunction()">注册</button>
+            </div>
+        </div>
+        <img src = "low-poly-grid-haikei.svg" alt = "pic" class = "back">
+    </div>
+</body>
+</html>
