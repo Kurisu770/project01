@@ -3,162 +3,92 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <meta name = "Userprofile">
+    <title>User Profile</title>
+    <script src = "jquery-3.7.1.js"></script>
+
     <style>
-        body {
+        *{
             box-sizing: border-box;
-            margin: 0 0 100px 0;
-            background: #222222;
         }
+        body{
+            border: 1px solid black;
+            width:1300px;
+            height: 1000px;
+            margin: auto;
+            background-color: #222222;
 
-        .nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            width: 99vw;
-            height: 10vh;
+            .personalize{
+                display:flex;
+                width: inherit;
 
-            .tabs {
-                input {
-                    display: none;
+                .background-image{
+                    z-index: -1;
                 }
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                width:30px;
-                top: 10px;
-                right: 20px;
-
-                label {
-                    opacity: 0.6;
-                    color: white;
-                    font-size: 30px;
-                }
-            }
-        }
-
-        .main {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 99vw;
-            height: 90vh;
-
-            .data {
-                .x {
-                    border: 2px solid black;
+                .avatar{
+                    position: absolute;
+                    inset: 150px 600px;
+                    border: none;
                     border-radius: 50%;
-                    padding: 10px 20px 10px 20px;
-                    color: whitesmoke;
-                    position: absolute;
-                    top: 5vh;
-                    left: 40vw;
-                    font-size: 4em;
+                    z-index: 2;
+                    width: 160px;
+                    height: 160px;
+                    box-shadow: 0 0 1px 6px white;
                 }
+            }
+            .information{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                width: inherit;
 
-                .y {
-                    width: 20vw;
-                    height: 13vh;
-                    position: absolute;
-                    top: 5vh;
-                    right: 30vw;
-                    font-size: 1.2em;
-                    text-indent: 20px;
-                    font-family: "Comic Sans MS";
+                .profile{
+                    width: 1000px;
+                    height: 750px;
+                    background-color: rgba(250,250,210,10%);
                 }
+                .list{
+                    border: 1px solid forestgreen;
+                    padding-left: 70px;
+                    width: 300px;
+                    height: 750px;
+                    background-color: rgba(255,255,255,60%);
 
-                .z {
-                    width: 28.8vw;
-                    height: 40vh;
-                    border: 2px solid black;
-                    border-radius: 10px 10px 0 0;
-                    position: absolute;
-                    top: 23vh;
-                    right: 30vw;
+                    ul{
+                        line-height: 4.5;
+                    }
                 }
-
             }
 
-            .u {
-                position: absolute;
-                top: 5vh;
-                left: 25vw;
-                transition: .8s;
-                border-radius: 100px;
-                width: 160px;
-                height: 50px;
-                text-align: center;
-                font: bold 25px "Comic Sans MS";
-                color: white;
-                transform: scale(0.8);
-                background: linear-gradient(#EEEEEE, #686D76);
-                background-size: 1000%;
-                border: none;
-            }
-
-            button:hover {
-                z-index: 2;
-                transform: scale(1.1);
-                box-shadow: 0 0 5px 3px ghostwhite;
-                border: 1px solid silver;
-            }
-
-            /*
-    .container1{
-        position: absolute;
-        top: 50vh;
-        left: 10vw;
-        background-color: floralwhite;
-    }
-    .container2{
-        position: absolute;
-        top: 50vh;
-        right: 10vw;
-        background-color: floralwhite;
-    }
-    .container1,.container2{
-        margin-top: 30vh;
-        transition: .5s;
-        width: 500px;
-        height: 550px;
-        border-radius: 10px
-    }
-    .container1:hover,.container2:hover{
-        z-index: 2;
-        transform: scale(1.1);
-    }
-    */
         }
+
     </style>
 </head>
 
-<body>
-    <div class="nav">
-        <div class="tabs">
-            <input type="radio" name="system" id="setting" checked>
-            <div class="icon">
-                <label for="setting"><i class='bx bxs-cog'></i></label>
-            </div>
+<body id = "container">
+    <div class = "personalize">
+        <img src="https://picsum.photos/1300/250?grayscale" alt="背景图片" class = "background-image">
+        <img src="390263d2fd.jpg" alt = "我的头像" class = "avatar">
+    </div>
+    <div class = "information">
+        <div class = "profile"></div>
+        <div class = "list">
+            <ul>
+                <li>object 1</li>
+                <li>object 2</li>
+                <li>object 3</li>
+                <li>object 4</li>
+                <li>object 5</li>
+                <li>object 6</li>
+                <li>object 7</li>
+                <li>object 8</li>
+                <li>object 9</li>
+                <li>object 10</li>
+            </ul>
         </div>
     </div>
 
-    <div class="main">
-        <div class="data">
-            <div class="x"><i class='bx bx-user'></i></div>
-            <div class="y">
-                <p>Name: </p>
-                <p>ID: </p>
-            </div>
-            <div class="z"></div>
-        </div>
-        <button class="u">用户</button>
-    </div>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </body>
 
 </html>

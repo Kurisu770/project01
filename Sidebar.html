@@ -5,7 +5,8 @@
     <title>Side Bar</title>
     <link rel = "icon" href = "favicon-16x16.png" type="image\png">
     <link rel = "icon" href = "favicon-32x32.png" type="image\png">
-
+    <script src="jquery-3.7.1.js" type="text/javascript"></script>
+    <script src="Registration_judge-trans.js" type="text/javascript"></script>
     <style>
 
         *{
@@ -81,14 +82,14 @@
                     left: 5px;
                     text-decoration: none;
 
-                    .tx{
+                    .innerava{
                         box-shadow: 3px 3px 8px 8px black;
                         transition: .5s;
                         opacity: 0.8;
                         border: 1px solid black;
                         border-radius: 50%;
                     }
-                    .tx:hover{
+                    .innerava:hover{
                         opacity: 1;
                         transform: scale(1.1);
                     }
@@ -128,10 +129,8 @@
                     width: 130px;
                     height: 90px;
                     font-size: 1.5em;
-                    font-weight: bold;
-                    cursor: pointer;
                     padding-top: 10px;
-                    padding-left: 10px;
+                    padding-left: 25px;
                     margin-top:10px;
                     margin-left:50px;
                     a{
@@ -142,6 +141,9 @@
                         opacity: 1;
                         cursor: pointer;
                         text-shadow: none;
+                    }
+                    .inneruname{
+                        color: white;
                     }
                 }
             }
@@ -413,13 +415,13 @@
 <div id = "container">
     <div class = "inner">
     <div class = "nav">
-        <div><a class = "ava" href = "https://boxicons.com/usage"><img src = "390263d2fd.jpg" alt="avatar" width="65" height="65" class="tx"></a></div>
+        <div><a class = "ava" href = "http://localhost:63342/HTML/HC%20beginner/Tag/UserProfile.html?_ijt=23uuns489p69tk12b1isi3be0b&_ij_reload=RELOAD_ON_SAVE"><img src = "390263d2fd.jpg" alt="avatar" width="65" height="65" class="innerava"></a></div>
         <!--<span><a class = "ava" href = "https://boxicons.com/usage"><i class='bx bxs-user-circle'></i></a></span>-->
         <div class = "sub">
             <span>steinsgate</span>
             <span class = "tri"></span>
         </div>
-        <span class = "uname"><a href = "https://boxicons.com/usage">username</a></span>
+        <span class = "uname"><a href = "http://localhost:63342/HTML/HC%20beginner/Tag/UserProfile.html?_ijt=23uuns489p69tk12b1isi3be0b&_ij_reload=RELOAD_ON_SAVE" class = "inneruname"></a></span>
     </div>
     <div class = "main">
         <div class = "line1"></div><br>
@@ -461,7 +463,6 @@
     </div>
     </div>
 </div>
-
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </body>
 </html>
