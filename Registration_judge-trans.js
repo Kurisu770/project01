@@ -2,11 +2,21 @@ let valid_username = false;
 let valid_password = false;
 let valid_confirm = false;
 let valid_address = false;
+//插入图标从这里开始,可以优化的部分
+let valid_u = document.querySelector('.valid_u');
+let valid_p = document.querySelector('.valid_p');
+let valid_c = document.querySelector('.valid_c');
+let valid_a = document.querySelector('.valid_a');
+let invalid_u = document.querySelector('.invalid_u');
+let invalid_p = document.querySelector('.invalid_p');
+let invalid_c = document.querySelector('.invalid_c');
+let invalid_a = document.querySelector('.invalid_a');
+//-----------------------到这里
 const pass = {
-    border: "1px solid green"
+    borderBottom: "1px solid green"
 }
 const stop = {
-    border: "1px solid red"
+    borderBottom: "1px solid red"
 }
 const original = {
     border: "none",
@@ -20,32 +30,44 @@ function isEmpty(str) {
     return false;
 }
 function judgeUsername(username) {
+    valid_u.style.opacity = 0;
+    invalid_u.style.opacity = 0;
     if(isEmpty(username) === false) {
         //字母a-z gi 长度:1~11
         if (username.match(/^[a-zA-Z]{1,11}$/g)) {
             $('#username').css(pass);
             valid_username = true;
+            valid_u.style.opacity = 1;
         } else {
             $('#username').css(stop);
+            invalid_u.style.opacity = 1;
         }
     } else {
         $('#username').css(original);
     }
 }
 function judgePassword(password) {
+    valid_p.style.opacity = 0;
+    invalid_p.style.opacity = 0;
     if(isEmpty(password) === false) {
         //数字0~9,字母a-z gi 长度:8~15
         if(password.match(/^[a-zA-Z0-9]{8,15}$/g)) {
             $('#password').css(pass);
             valid_password = true;
+            valid_p.style.top = 105 + 'px';
+            valid_p.style.opacity = 1;
         } else {
             $('#password').css(stop);
+            invalid_p.style.top = 105 + 'px';
+            invalid_p.style.opacity = 1;
         }
     } else {
         $('#password').css(original);
     }
 }
 function judgeConfirm(confirm) {
+    valid_c.style.opacity = 0;
+    invalid_c.style.opacity = 0;
     const password = document.querySelector('#password').value;
     if(isEmpty(confirm) === false) {
         //先判断password是否规范
@@ -54,8 +76,12 @@ function judgeConfirm(confirm) {
             if (confirm === password) {
                 $('#confirm').css(pass);
                 valid_confirm = true;
+                valid_c.style.top = 195 + 'px';
+                valid_c.style.opacity = 1;
             } else {
                 $('#confirm').css(stop);
+                invalid_c.style.top = 195 + 'px';
+                invalid_c.style.opacity = 1;
             }
         }
     } else {
@@ -63,16 +89,19 @@ function judgeConfirm(confirm) {
     }
 }
 function judgeAddress(address) {
+    valid_a.style.opacity = 0;
+    invalid_a.style.opacity = 0;
     if(isEmpty(address) === false) {
         //数字0~9,字母a-z,@.com gi 长度:不限
         if (address.match(/^([a-zA-Z0-9])+\@([a-zA-Z0-9])+\.([a-zA-Z)]{2,8})$/g)) {
             $('#address').css(pass);
             valid_address = true;
-            let iconCheck = document.createElement('img');
-            iconCheck.setAttribute('src', "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAAAXNSR0IArs4c6QAAASRJREFUaEPt1tsNwjAMBVB3E9gENmETxCQwCqMwCr1SLUUoJLFrJ43kfqKYnN46j4UmfJYJzRToXl8tko6kCwlEe0R7RHv06oFI2i/pExF9Wv7+KFvecwXfiOjcAj8CmsEcchU+Gv0LBvxNRNdSm4xEq8B4mVFoNXgUehd4BHo3uDfaBNwTbQbWoHFq3dcF/Gg5BLZtyxQsRQMMwGUDYy+tHbvmYAmaE8ZRyw/AJbgLWILGWLQF0HiBGtwNLEW3wl3BGnQNzl8jvTpU7xIt19F0jPYYz7VKbm5zsDZpxtXgLuC96H+tgt/dwBboHNwVbIVO4bx3S9eWaLx2IeYmwR7+Es2uHGyJVhLkZYGWZ6ariKR1ucmrIml5ZrqKSFqXm7xqyqS/ogg6LjVCDSMAAAAASUVORK5CYII=");
-            document.getElementById('username').appendChild(iconCheck);
+            valid_a.style.top = 285 + 'px';
+            valid_a.style.opacity = 1;
         } else {
             $('#address').css(stop);
+            invalid_a.style.top = 285 + 'px';
+            invalid_a.style.opacity = 1;
         }
     } else {
         $('#address').css(original);
@@ -91,10 +120,22 @@ signup.addEventListener('click', function showPop() {
         transition.textContent = "Welcome to Utopia, " + document.querySelector('#username').value + "....";
     } else {
         const alert = document.querySelector('.register_error-alert');
-        const alert_close = document.querySelector('.register_error-alert');
+        const alert_close = document.querySelector('.register_error-alert-close');
         container.style.opacity = 0.3;
         alert.style.display = 'block';
-        alert.style.border = "1px solid black";
+
+        //js制作animation动画的思路: *明白动画的本质,把它当成一个元素的逐帧(px)迭代, 比如说要将一个元素从top0移动到top200, 设置一个计数器, 把他从0迭代到200*
+        /*let pos = 0;
+        let iteration = setInterval(animation,10);
+        function animation() {
+            if(pos === 20) {
+                clearInterval(iteration)
+            } else {
+                pos++;
+                alert.style.top = pos + 'px';
+            }
+        }
+         */
         alert_close.addEventListener('click', function closeAlert() {
             alert.style.display = 'none';
             container.style.opacity = 1;
@@ -123,7 +164,7 @@ convert.addEventListener('click', function convertDisplay() {
     }
 });
 
-//规划1: judge判断标准修改 tick
+//规划1: judge判断标准修改 弹窗样式 tick
 //规划2: pass,stop丰富反馈(插入图标)
 //规划3: clearButton样式制作,以及focus显示,blur隐藏(j)
 //规划4: 开始制作登录页面，交互切换, 新思路: 把切换button做成a link, 点击跳转到second_content,设置scroll-behaviour:smooth, 因为已经有overflow hidden的缘故会不会从右往左shift, 值得尝试
@@ -154,3 +195,4 @@ input.addEventListener('input', function showClearButton() {
         clearButton_address.style.display = 'block';
     }
 });*/
+

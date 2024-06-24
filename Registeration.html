@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta name = "Registration" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <meta name = "description" content="这是一个注册登录交互页面">
@@ -19,7 +19,10 @@
             height: 992px;
             background: url("注册页面主背景.svg") no-repeat fixed;
             backdrop-filter: brightness(0.2);
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overscroll-behavior: none;
             audio{
                 position: absolute;
                 top:0;
@@ -108,7 +111,7 @@
                             color: white;
                             font-weight: 300;
                             border: none;
-                            background-color: transparent;
+                            background: transparent;
                             border-bottom: 2px solid rgba(41,126,166,50%);
                             font-size: 1.1em;
                             border-radius: 3px;
@@ -125,6 +128,21 @@
                             color: black;
                             background-color: rgba(255, 255, 255, 95%);
                             border-radius: 13px;
+                        }
+                        label {
+                            .valid,.invalid {
+                                opacity: 0;
+                                position: absolute;
+                                top: 15px;
+                                right: -35px;
+                                font-size: 2em;
+                            }
+                            .valid {
+                                color: green;
+                            }
+                            .invalid {
+                                color: red;
+                            }
                         }
                     }
 
@@ -173,17 +191,6 @@
                 backdrop-filter: blur(100px);
                 perspective: 100px;
             }
-            @keyframes show{
-                0%{
-                    transform: translateX(-50%);
-                }
-                50%{
-                    transform: translateX(-100%);
-                }
-                100%{
-                    transform: translateX(-150%);
-                }
-            }
 
             .second_content {
                 width: 510px;
@@ -193,35 +200,118 @@
                 top: 0;
                 right: -510px;
             }
-
+            /*
             .register_error-alert {
+                transition: 1s;
                 display: none;
                 position: absolute;
-                inset: 35%;
-                width: 500px;
-                height: 100px;
-                font: 500 22px "Helvetica";
-                text-align: center;
+                inset: 0;
+                margin: auto;
+                width: 460px;
+                height: 180px;
+                box-shadow: 0 0 10px 1px grey;
+                background: linear-gradient(#9f6f6f,#e86767);
+                border-radius: 3px;
 
                 .register_error-alert-type{
                     width: 100%;
-                    height: 30%;
-                    background-color: #222222;
-                    color: grey;
-                    margin: auto;
+                    height: 20%;
+                    position: relative;
+                    color: white;
+                    padding: 10px 5px 55px 25px;
+                    font: 900 26px "Helvetica";
+                    border-radius: 2px;
+                    overflow: hidden;
+
+                    .register_error-alert-type-background {
+                        position: absolute;
+                        top: -75px;
+                        left: -45px;
+                        color: yellow;
+                        font-size: 6em;
+                        opacity: 0.2;
+                    }
+                }
+                .register_error-alert-description {
+                    margin-left: 60px;
+                    color: silver;
+
+                    .register_error-alert-icon{
+                        color: yellow;
+                        font-size: 2.3em;
+                        float: left;
+                        padding-right: 15px;
+                    }
+                }
+                .register_error-alert-close {
+                    width: 160px;
+                    height: 50px;
+                    font-size: 2.7em;
+                    text-align: center;
+                    opacity: 0.6;
+                    margin: 20px 0 0 250px;
+                    transform: skewX(-15deg);
+                    box-shadow: -10px 0 40px 0 #444444;
+                }
+            }
+            .register_error-alert:hover{
+                transform: translateY(20%);
+            }
+            */
+
+            .register_error-alert {
+                display: none;
+                animation: drop ease-out 1s normal both;
+                position: absolute;
+                top: 0;
+                width: 460px;
+                height: 180px;
+                background: linear-gradient(to bottom,#9f6f6f,#e86767);
+                box-shadow: 0 0 10px 1px grey;
+
+                .alert_background {
+                    position: absolute;
+                    top: -30px;
+                    left: -20px;
+                    color: yellow;
+                    font-size: 6em;
+                    opacity: 0.2;
                 }
                 .register_error-alert-description {
                     width: 100%;
-                    height: 70%;
-                    background-color: white;
-                    color: black;
-                    margin: auto;
-                    padding: 10px;
-                }
-                .register_error-alert-close {
-                    width: 50px;
-                    height: 30px;
-                    float: right;
+                    height: 100%;
+                    color: silver;
+                    font-size: 1.1em;
+                    padding: 60px 0 0 40px;
+
+                    .alert_type {
+                        color: white;
+                        position: absolute;
+                        top: 10px;
+                        left: 20px;
+                        font-family: "Monospaced",sans-serif;
+                        font-variant: small-caps;
+                        text-transform: uppercase;
+                        font-size: 30px;
+                    }
+                    .register_error-alert-icon {
+                        color: yellow;
+                        font-size: 2em;
+                        float: left;
+                        padding-right: 20px;
+                    }
+                    .register_error-alert-close {
+                        z-index: 100;
+                        width: 160px;
+                        height: 50px;
+                        position: absolute;
+                        bottom: -5px;
+                        right: -5px;
+                        font-size: 2.5em;
+                        opacity: 0.5;
+                        transform: skewX(-15deg);
+                        box-shadow: -10px 0 40px 0 #444444;
+                    }
                 }
             }
 
@@ -273,6 +363,20 @@
                 border-right-color: transparent;
             }
         }
+        @keyframes drop {
+            0%{
+                top: 0;
+            }
+            60%{
+                top: 200px;
+            }
+            80%{
+                top: 100px;
+            }
+            100%{
+                top: 150px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -285,13 +389,13 @@
         <div class = "content">
             <div class = "av"></div>
             <form action = "#" method = "GET">
-                <label for = "username"></label>
+                <label for = "username"><span class = "valid valid_u"><i class='bx bx-check'></i></span><span class = "invalid invalid_u"><i class='bx bx-error-circle'></i></span></label>
                 <input name = "username" placeholder = "你的名字" onblur="judgeUsername(this.value)" id = "username" required>
-                <label for = "password"></label>
+                <label for = "password"><span class = "valid valid_p"><i class='bx bx-check'></i></span><span class = "invalid invalid_p"><i class='bx bx-error-circle'></i></span></label>
                 <input type = "password" name = "password" placeholder = "密码不少于8个字符" onblur="judgePassword(this.value)" id = "password" required>
-                <label for = "confirm"></label>
+                <label for = "confirm"><span class = "valid valid_c"><i class='bx bx-check'></i></span><span class = "invalid invalid_c"><i class='bx bx-error-circle'></i></span></label>
                 <input type = "password" name = "confirm" placeholder = "再次确认密码" onblur="judgeConfirm(this.value)" id = "confirm" required>
-                <label for = "address"></label>
+                <label for = "address"><span class = "valid valid_a"><i class='bx bx-check'></i></span><span class = "invalid invalid_a"><i class='bx bx-error-circle'></i></span></label>
                 <input type = "email" name = "address" placeholder = "输入有效电话号码/邮箱" onblur="judgeAddress(this.value)" id = "address" required>
             </form>
             <button class = "signup">注册</button>
@@ -299,10 +403,12 @@
         <div class = "second_content"></div>
     </div>
     <div class = "register_error-alert">
-        <div class = "register_error-alert-type">Error01</div>
+        <div class = "alert_background"><i class='bx bx-chevrons-right bx-fade-left' ></i></div>
         <div class = "register_error-alert-description">
-            <div>输入信息不规范/ 信息填写待完善</div>
-            <button class = "register_error-alert-close">关闭</button>
+            <h1 class = "alert_type">error</h1>
+            <div class = "register_error-alert-icon"><i class='bx bxs-error'></i></div>
+            <div>You can not do this action! <br> Invalid input/ User information missing</div>
+            <button class = "register_error-alert-close">I know</button>
         </div>
     </div>
     <div class = "popup inline-animation">
