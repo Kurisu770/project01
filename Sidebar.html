@@ -3,9 +3,7 @@
 <head>
     <meta name = "Sidebar" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <meta name = "description" content = "">
-    <title>侧边栏</title>
-    <link rel = "icon" href = "favicon-16x16.png" type="image\png">
-    <link rel = "icon" href = "favicon-32x32.png" type="image\png">
+    <title>Side-bar</title>
     <script src="jquery-3.7.1.js" type="text/javascript"></script>
     <script src="Registration_judge-trans.js" type="text/javascript"></script>
     <style>
@@ -48,8 +46,9 @@
             transition: .8s;
             background-color: black;
             position: absolute;
-            top: 8vh;
-            left: 8vw;
+            top: 81px;
+            /*hover前后相差2vw*/
+            left: 4vw;
             min-width: 95px;
             height: 800px;
             border-radius: 20px;
@@ -122,7 +121,7 @@
                     opacity: 0;
                     position: absolute;
                     top: -60%;
-                    right: 10%;
+                    right: 12%;
                     font-size: 1.6em;
 
                     .inneruname{
@@ -153,7 +152,7 @@
                 .title1{
                     position: absolute;
                     top: 10px;
-                    left: 17px;
+                    left: 20px;
                     opacity: 0.5;
                     font-size: 11px;
                     text-transform: uppercase;
@@ -305,7 +304,7 @@
                             height: 40px;
                             padding: 10px 5px 0 5px;
                             margin: 0 0 0 10px;
-                            background:linear-gradient(to right,yellow, yellow) no-repeat bottom;
+                            background:linear-gradient(to right, yellow, yellow) no-repeat bottom;
                             background-size: 0 2px;
                             a:active{
                                 color: hotpink;
@@ -387,7 +386,7 @@
 
         #container:hover{
             min-width: 235px;
-            left: 5vw;
+            left: 2vw;
         }
         #container:hover .avatar-image{
             transform: translate(3px,5px);
@@ -399,7 +398,6 @@
         #container:hover .bell{
             margin-left: 65px;
         }
-
     </style>
 </head>
 <body>
@@ -410,7 +408,7 @@
         <div><a class = "avatar-link" href = "http://localhost:63342/HTML/HC%20beginner/Tag/UserProfile.html?_ijt=23uuns489p69tk12b1isi3be0b&_ij_reload=RELOAD_ON_SAVE"><img class = "avatar-image" src = "侧边栏头像示例.jpg" alt="avatar" width="70" height="70"></a></div>
         <!--<span><a class = "ava" href = "https://boxicons.com/usage"><i class='bx bxs-user-circle'></i></a></span>-->
         <div class = "sub">
-            <span>akanobody</span>
+            <span>steinsgate</span>
             <span class = "tri"></span>
         </div>
         <span class = "uname"><a href = "http://localhost:63342/HTML/HC%20beginner/Tag/UserProfile.html?_ijt=23uuns489p69tk12b1isi3be0b&_ij_reload=RELOAD_ON_SAVE" class = "inneruname"></a></span>
@@ -437,7 +435,6 @@
     </div>
     <div class = "foot">
         <span class = "title2">setting</span>
-        <!--<div class = "side2"></div>-->
         <div class = "side2"></div>
         <div class = "others">
             <div class = "content">

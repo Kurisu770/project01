@@ -129,7 +129,7 @@ signup.addEventListener('click', function showPop() {
         animatedBackground.className = "background-2";
         inline_animation.addEventListener("animationend", function next() {
             //setTimeout函数的第一个传参可以是已有的函数也可以是新函数，也就是里面有执行代码块内容的
-            setTimeout(function () {location.replace("http://localhost:63342/HTML/HC%20beginner/Tag/Sidebar.html?_ijt=v4p2u95pd3v9qqjiu03eln0g3e&_ij_reload=RELOAD_ON_SAVE");}, 2000);
+            setTimeout(function () {location.replace("http://localhost:63342/HTML/HC%20beginner/Tag/Sidebar.html?_ijt=v4p2u95pd3v9qqjiu03eln0g3e&_ij_reload=RELOAD_ON_SAVE");}, 1000);
         });
     } else {
         container.style.opacity = 0.3;
@@ -151,6 +151,9 @@ signup.addEventListener('click', function showPop() {
             container.style.opacity = 1;
         });
     }
+    const array = [1,2,3];
+    localStorage.setItem('array',JSON.stringify(array));
+    const array_data = JSON.parse(localStorage.getItem('array'));
 });
 function usernameFocus(username) {
     //在focus时不显示check/error(代替了上方blur时清除图标可见度的效果)
