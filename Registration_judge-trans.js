@@ -18,7 +18,6 @@ let valid_address = false;
 //插入图标从这里开始,可以优化的部分(优化次数: 1)
 const valid = document.querySelectorAll('.valid');
 const invalid = document.querySelectorAll('.invalid');
-let draggable = false;
 //-----------------------到这里
 const pass = {
     borderBottom: "1px solid green"
@@ -129,10 +128,11 @@ signup.addEventListener('click', function showPop() {
         animatedBackground.className = "background-2";
         inline_animation.addEventListener("animationend", function next() {
             //setTimeout函数的第一个传参可以是已有的函数也可以是新函数，也就是里面有执行代码块内容的
-            setTimeout(function () {location.replace("http://localhost:63342/HTML/HC%20beginner/Tag/Sidebar.html?_ijt=v4p2u95pd3v9qqjiu03eln0g3e&_ij_reload=RELOAD_ON_SAVE");}, 1000);
+            setTimeout(function () {location.assign("http://localhost:63342/HTML/HC%20beginner/Tag/Sidebar.html?_ijt=v4p2u95pd3v9qqjiu03eln0g3e&_ij_reload=RELOAD_ON_SAVE");}, 1000);
         });
     } else {
         container.style.opacity = 0.3;
+        container.style.filter = "blur(3px)";
         alertContent.style.display = 'block';
         //js制作animation动画的思路: *明白动画的本质,把它当成一个元素的逐帧(px)迭代, 比如说要将一个元素从top0移动到top200, 设置一个计数器, 把他从0迭代到200*
         /*let pos = 0;
@@ -147,13 +147,11 @@ signup.addEventListener('click', function showPop() {
         }
          */
         alert_close.addEventListener('click', function closeAlert() {
-            alertContent.style.display = 'none';
             container.style.opacity = 1;
+            container.style.filter = "none";
+            alertContent.style.display = 'none';
         });
     }
-    const array = [1,2,3];
-    localStorage.setItem('array',JSON.stringify(array));
-    const array_data = JSON.parse(localStorage.getItem('array'));
 });
 function usernameFocus(username) {
     //在focus时不显示check/error(代替了上方blur时清除图标可见度的效果)
@@ -213,6 +211,7 @@ window.addEventListener('load', function reloadAutoComplete() {
         address.value = address_data;
     }
 });
+
 
 //规划1: judge判断标准修改 弹窗样式 -tick-
 //规划2: pass,stop丰富反馈(插入图标) -tick-
